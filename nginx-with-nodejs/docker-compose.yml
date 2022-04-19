@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fullcycle3.0-docker_nginex-with-nodejs
+    volumes:
+      - ./node_modules:/home/node/appnode/node_modules
+    ports:
+      - 3000:3000
