@@ -5,8 +5,22 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: fullcycle3.0-docker_nginex-with-nodejs
+    container_name: fullcycle3.0-docker_nginx-with-nodejs
     volumes:
       - ./node_modules:/home/node/appnode/node_modules
+    networks:
+      - fullcycle3.0-docker
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: fullcycle3.0-docker_nginx-with-nodejs_nginx
     ports:
-      - 3000:3000
+      - 8080:80
+    networks:
+      - fullcycle3.0-docker
+
+networks:
+  fullcycle3.0-docker:
+    driver: bridge

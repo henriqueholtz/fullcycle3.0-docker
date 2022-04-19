@@ -9,4 +9,5 @@ COPY package*.json .
 # USER node
 # npm ci is equivalent of "yarn install --frozen-lockfile"
 RUN npm ci
+EXPOSE 3000
 CMD ["npm", "run", "start"]
